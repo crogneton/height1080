@@ -20,13 +20,24 @@
 	box-sizing: border-box;
 }
 </style>
+
+	
 <script>
 // В вашем TMA
 if (window.Telegram.WebApp.platform !== "unknown") {
     Telegram.WebApp.expand();
     Telegram.WebApp.enableClosingConfirmation();
 }
+
+	 Telegram.WebApp.expand();
+	 Telegram.WebApp.requestFullscreen();
+viewport.requestFullscreen();
+viewport.expand();
+	
 </script>
+
+
+	
 </head>
 <body>
 <center>
@@ -50,6 +61,7 @@ if (window.Telegram.WebApp.platform !== "unknown") {
 </body>
 
 </html>
+
 
 
 
