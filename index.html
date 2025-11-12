@@ -25,14 +25,11 @@
 <script>
 // В вашем TMA
 if (window.Telegram.WebApp.platform !== "unknown") {
-    Telegram.WebApp.expand();
-    Telegram.WebApp.enableClosingConfirmation();
+
+    
 }
 
-	 Telegram.WebApp.expand();
-	 Telegram.WebApp.requestFullscreen();
-viewport.requestFullscreen();
-viewport.expand();
+	 
 	
 </script>
 
@@ -61,6 +58,10 @@ viewport.expand();
   // если в десктопном Telegram (или в браузере на ПК) — считаем desktop.
   if (isTelegram && isMobile) {
     el.textContent = 'телефон';
+	  
+	Telegram.WebApp.expand();
+	Telegram.WebApp.requestFullscreen();
+	Telegram.WebApp.enableClosingConfirmation();
   } else if (isTelegram && !isMobile) {
     el.textContent = 'компьютер';
   } else {
@@ -87,6 +88,7 @@ viewport.expand();
 </body>
 
 </html>
+
 
 
 
