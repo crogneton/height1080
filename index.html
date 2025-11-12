@@ -43,6 +43,32 @@ viewport.expand();
 <center>
 
 
+<div id='qwerty' style='background:red;'></div>
+<script>
+	(function() {
+  // Элемент куда вставлять
+  var el = document.getElementById('qwerty');
+  if (!el) return;
+
+  // Простой детектор по userAgent
+  var ua = navigator.userAgent || '';
+  var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(ua);
+
+  // Доп. проверка на Telegram Web/Desktop: userAgent обычно содержит "Telegram" в десктоп/тг-юзер-агенте
+  var isTelegram = /Telegram/i.test(ua) || /TelegramWeb/i.test(ua);
+
+  // Решение: если запущено в приложении Telegram на мобильном — считаем mobile,
+  // если в десктопном Telegram (или в браузере на ПК) — считаем desktop.
+  if (isTelegram && isMobile) {
+    el.textContent = 'телефон';
+  } else if (isTelegram && !isMobile) {
+    el.textContent = 'компьютер';
+  } else {
+    // Если не уверены, основываемся только на моб/десктоп
+    el.textContent = isMobile ? 'телефон' : 'компьютер';
+  }
+})();
+</script>
 
 <div id='main' style='padding: 0px 0px 0px 0px; background:#000; width:360px; overflow:hidden;'>
 <div id='content' style='position:relative; padding: 0px 0px 0px 0px;'>
@@ -61,6 +87,7 @@ viewport.expand();
 </body>
 
 </html>
+
 
 
 
